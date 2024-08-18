@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:quiz_pro/utils/router_names.dart';
+import 'package:quiz_pro/view/userAuth/forgot_password_screen.dart';
 import 'package:quiz_pro/view/userAuth/intro_screen.dart';
 import 'package:quiz_pro/view/userAuth/login_screen.dart';
 import 'package:quiz_pro/view/userAuth/sign_up_screen.dart';
@@ -12,6 +13,7 @@ final Map<String, WidgetBuilder> routes = {
   RouteNames.splashScreen: (context) => const SplashScreen(),
   RouteNames.loginScreen: (context) => const LoginScreen(),
   RouteNames.signUpScreen: (context) => const SignUpScreen(),
+  RouteNames.forgotPasswordScreen: (context) => const ForgotPasswordScreen(),
 
 };
 

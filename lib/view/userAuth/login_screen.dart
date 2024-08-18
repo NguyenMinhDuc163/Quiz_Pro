@@ -1,11 +1,16 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:quiz_pro/res/core/constants/color_constants.dart';
 import 'package:quiz_pro/res/core/helpers/asset_helper.dart';
+import 'package:quiz_pro/res/core/helpers/local_storage_helper.dart';
 import 'package:quiz_pro/utils/router_names.dart';
 
+import '../../viewModel/auth_view_model.dart';
 import 'widget/custom_rich_text_widget.dart';
 import 'widget/dividerR_row_widget.dart';
+import 'widget/icon_language_widget.dart';
 import 'widget/password_text_field_widget.dart';
 import 'widget/primary_button_widget.dart';
 import 'widget/primary_text_button_widget.dart';
@@ -24,12 +29,17 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   late TextEditingController emailC;
   late TextEditingController passwordC;
-
+  bool isVietnamese = true;
   @override
   void initState() {
     super.initState();
     emailC = TextEditingController();
     passwordC = TextEditingController();
+    // Kiểm tra ngôn ngữ đã lưu trong Hive
+    String? savedLocale = LocalStorageHelper.getValue('languageCode');
+    if (savedLocale != null) {
+      isVietnamese = savedLocale == 'vi';
+    }
   }
 
   @override
@@ -41,11 +51,57 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final authViewModel = Provider.of<AuthViewModel>(context);
     return Scaffold(
       backgroundColor: ColorPalette.kWhite,
-      appBar: AppBar(
+      appBar:  AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
+        automaticallyImplyLeading: false,
+        actions: [
+          // IconButton(
+          //   icon: Icon(Icons.language, color: Colors.black),
+          //   onPressed: () {
+          //     // Chuyển đổi ngôn ngữ
+          //     if (context.locale == Locale('en', 'US')) {
+          //       context.setLocale(Locale('vi', 'VN'));
+          //     } else {
+          //       context.setLocale(Locale('en', 'US'));
+          //     }
+          //   },
+          // ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const SizedBox(
+                width: 80,
+                height: 50,
+              ),
+              GestureDetector(
+                //TODO language
+                // onTap: _toggleImage,
+                onTap: () {
+                  isVietnamese = !isVietnamese;
+                  if (isVietnamese) {
+                    context.setLocale(Locale('vi', 'VN'));
+                    LocalStorageHelper.setValue('languageCode', 'vi'); // Lưu trạng thái vào Hive
+                  } else {
+                    context.setLocale(Locale('en', 'US'));
+                    LocalStorageHelper.setValue('languageCode', 'en'); // Lưu trạng thái vào Hive
+                  }
+                },
+                child: Container(
+                    width: 65,
+                    height: 42,
+                    padding: EdgeInsets.all(8),
+                    child: isVietnamese
+
+                        ? const IconLanguageWidget( name: "VN", path: AssetHelper.icoVN)
+                        : const IconLanguageWidget( name: "EN", path: AssetHelper.icoAmerica)),
+              ),
+            ],
+          )
+        ],
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -124,7 +180,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     PrimaryTextButtonWidget(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, RouteNames.forgotPasswordScreen);
+                      },
                       title: 'forgot_password'.tr(),
                       textStyle: const TextStyle(),
                     ),
@@ -135,7 +193,18 @@ class _LoginScreenState extends State<LoginScreen> {
                   children: [
                     PrimaryButtonWidget(
                       elevation: 0,
-                      onTap: () {},
+                      onTap: () async {
+                        try {
+                          await authViewModel.signInWithMagicLink(
+                            emailC.text.trim(),
+                            redirectUrl: kIsWeb ? null : 'io.supabase.flutterquickstart://login-callback/',
+                          );
+                          // Navigate to another screen after successful login
+                        } catch (e) {
+                          // Handle login error
+                          print(e);
+                        }
+                      },
                       text: 'login'.tr(),
                       bgColor: ColorPalette.kPrimary,
                       borderRadius: 20,

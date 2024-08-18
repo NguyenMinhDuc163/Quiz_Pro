@@ -6,6 +6,9 @@ mixin AssetHelper {
   static const String icoLogo = '${_baseIconPath}ico_logo.png';
   static const String icoRectangleBlue = '${_baseIconPath}ico_rectangle_blue.png';
   static const String icoRectanglePink = '${_baseIconPath}ico_rectangle_pink.png';
+  static const String icoVN = '${_baseIconPath}ico_vn.png';
+  static const String icoAmerica = '${_baseIconPath}ico_america.png';
+
 
 
   // images

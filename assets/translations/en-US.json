@@ -27,5 +27,9 @@
   "first_name": "First Name",
   "last_name": "Last Name",
   "already_have_account": "Already have an account?  ",
-  "or_sign_up_with": "Or Sign Up with"
+  "or_sign_up_with": "Or Sign Up with",
+
+  "dont_worry": "Don't worry! It occurs. Please enter the email address linked with your account.",
+  "enter_email_phone": "Enter your email and Phone no.",
+  "send_code": "Send Code"
 }

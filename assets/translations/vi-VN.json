@@ -27,5 +27,8 @@
   "first_name": "Tên",
   "last_name": "Họ",
   "already_have_account": "Bạn đã có tài khoản?  ",
-  "or_sign_up_with": "Hoặc đăng ký bằng"
+  "or_sign_up_with": "Hoặc đăng ký bằng",
+  "dont_worry": "Không sao đâu! Điều này vẫn thường xảy ra. Bạn hãy nhập địa chỉ email mà bạn đã dùng để đăng ký tài khoản.",
+  "enter_email_phone": "Nhập email và số điện thoại của bạn.",
+  "send_code": "Gửi mã xác nhận"
 }

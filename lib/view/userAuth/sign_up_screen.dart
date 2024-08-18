@@ -1,8 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:quiz_pro/res/core/constants/color_constants.dart';
 import 'package:quiz_pro/res/core/helpers/asset_helper.dart';
 
+import '../../viewModel/auth_view_model.dart';
 import 'widget/custom_rich_text_widget.dart';
 import 'widget/dividerR_row_widget.dart';
 import 'widget/password_text_field_widget.dart';
@@ -45,6 +47,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final authViewModel = Provider.of<AuthViewModel>(context);
     return Scaffold(
       backgroundColor: ColorPalette.kWhite,
       appBar: AppBar(
@@ -176,7 +179,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   children: [
                     PrimaryButtonWidget(
                       elevation: 0,
-                      onTap: () {},
+                      onTap: () async {
+                        try {
+                          // await authViewModel.signUp(emailC.text, passwordC.text);
+                          // // Navigate to another screen after successful signup
+                          await authViewModel.signUp(
+                            emailC.text.trim(),
+                            passwordC.text.trim(),
+                          );
+                          // Navigate to another screen after successful login
+                        } catch (e) {
+                          // Handle signup error
+                          print(e);
+                        }
+                      },
                       text: 'create_account'.tr(),
                       bgColor: ColorPalette.kPrimary,
                       borderRadius: 20,
