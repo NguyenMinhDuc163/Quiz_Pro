@@ -78,15 +78,14 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 50,
               ),
               GestureDetector(
-                //TODO language
                 // onTap: _toggleImage,
                 onTap: () {
                   isVietnamese = !isVietnamese;
                   if (isVietnamese) {
-                    context.setLocale(Locale('vi', 'VN'));
+                    context.setLocale(const Locale('vi', 'VN'));
                     LocalStorageHelper.setValue('languageCode', 'vi'); // Lưu trạng thái vào Hive
                   } else {
-                    context.setLocale(Locale('en', 'US'));
+                    context.setLocale(const Locale('en', 'US'));
                     LocalStorageHelper.setValue('languageCode', 'en'); // Lưu trạng thái vào Hive
                   }
                 },
@@ -184,7 +183,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         Navigator.pushNamed(context, RouteNames.forgotPasswordScreen);
                       },
                       title: 'forgot_password'.tr(),
-                      textStyle: const TextStyle(),
+                      textStyle: const TextStyle(color: Colors.blueAccent),
                     ),
                   ],
                 ),

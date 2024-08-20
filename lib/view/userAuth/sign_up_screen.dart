@@ -100,7 +100,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         const SizedBox(height: 8),
                         PrimaryTextFormFieldWidget(
                           borderRadius: BorderRadius.circular(24),
-                          hintText: 'Khalid',
+                          hintText: 'Nguyen',
                           controller: firstName,
                           width: 155,
                           height: 52,
@@ -121,7 +121,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         const SizedBox(height: 8),
                         PrimaryTextFormFieldWidget(
                           borderRadius: BorderRadius.circular(24),
-                          hintText: 'Mohammed',
+                          hintText: 'Van A',
                           controller: lastName,
                           width: 155,
                           height: 52,
@@ -145,7 +145,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     const SizedBox(height: 7),
                     PrimaryTextFormFieldWidget(
                       borderRadius: BorderRadius.circular(24),
-                      hintText: 'Khaledmohammed@gmail.com',
+                      hintText: 'abc@gmail.com',
                       controller: emailC,
                       width: 327,
                       height: 52,
@@ -205,10 +205,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       title: 'already_have_account'.tr(),
                       subtitle: 'login'.tr(),
                       onTab: () {},
-                      subtitleTextStyle: TextStyle(
+                      subtitleTextStyle: const TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w600,
-                        color: ColorPalette.kGrayscaleDark100,
+                        color: Colors.blueAccent,
                       ),
                     ),
                   ],
