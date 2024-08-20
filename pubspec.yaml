@@ -45,6 +45,7 @@ dependencies:
   smooth_page_indicator: ^1.2.0+3
   supabase_flutter: ^2.6.0
   flutter_dotenv: ^5.1.0
+  flutter_launcher_icons: ^0.13.1
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -60,6 +61,12 @@ dev_dependencies:
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter packages.
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/icons/icon_app.png"  # Đường dẫn đến file icon của bạn
+
 flutter:
 
   # The following line ensures that the Material Icons font is
@@ -73,6 +80,8 @@ flutter:
     - assets/images/
     - assets/icons/
     - .env
+
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
