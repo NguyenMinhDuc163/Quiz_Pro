@@ -16,4 +16,10 @@ mixin AssetHelper {
   static const String slide2 = '${_baseImagePath}slide2.png';
   static const String slide3 = '${_baseImagePath}slide3.png';
   static const String kGoogleIcon = '${_baseImagePath}googleSymbol.png';
+  static const String kTeacher = '${_baseImagePath}teacher.png';
+  static const String kStudent = '${_baseImagePath}student.png';
+  static const String onboarding_1 = '${_baseImagePath}onboarding_1.png';
+  // static const String kStudent = '${_baseImagePath}onboarding_2.png';
+  // static const String kStudent = '${_baseImagePath}onboarding_3.png';
+
 }

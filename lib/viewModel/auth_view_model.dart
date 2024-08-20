@@ -8,28 +8,39 @@ class AuthViewModel extends ChangeNotifier {
   UserModel? get user => _user;
 
   Future<void> signUp(String email, String password) async {
-    final response = await Supabase.instance.client.auth.signUp(
-      email: email,
-      password: password,
-    );
-    if (response.user != null) {
-      _user = UserModel(id: response.user!.id, email: response.user!.email!);
-      notifyListeners();
-    } else {
-      throw Exception('Sign Up Failed');
+    try {
+      final response = await Supabase.instance.client.auth.signUp(
+        email: email,
+        password: password,
+      );
+
+      if (response.user != null) {
+        _user = UserModel(id: response.user!.id, email: response.user!.email!);
+        notifyListeners();
+      } else {
+        throw Exception('Sign Up Failed');
+      }
+    } catch (e) {
+      throw Exception('Sign Up Failed: $e');
     }
+
   }
 
   Future<void> signIn(String email, String password) async {
-    final response = await Supabase.instance.client.auth.signInWithPassword(
-      email: email,
-      password: password,
-    );
-    if (response.user != null) {
-      _user = UserModel(id: response.user!.id, email: response.user!.email!);
-      notifyListeners();
-    } else {
-      throw Exception('Sign In Failed');
+    try {
+      final response = await Supabase.instance.client.auth.signInWithPassword(
+        email: email,
+        password: password,
+      );
+
+      if (response.session != null) {
+        _user = UserModel(id: response.session!.user.id, email: response.session!.user.email!);
+        notifyListeners();
+      } else {
+        throw Exception('Sign In Failed');
+      }
+    } catch (e) {
+      throw Exception('Sign In Failed: $e');
     }
   }
 
@@ -40,13 +51,17 @@ class AuthViewModel extends ChangeNotifier {
         emailRedirectTo: redirectUrl,
       );
     } catch (e) {
-      throw Exception('Magic Link Sign-In Failed');
+      throw Exception('Magic Link Sign-In Failed: $e');
     }
   }
 
   Future<void> signOut() async {
-    await Supabase.instance.client.auth.signOut();
-    _user = null;
-    notifyListeners();
+    try {
+      await Supabase.instance.client.auth.signOut();
+      _user = null;
+      notifyListeners();
+    } catch (e) {
+      throw Exception('Sign Out Failed: $e');
+    }
   }
 }

@@ -15,7 +15,6 @@ import 'widget/terms_and_privacyText_widget.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
-  static const String routeName = '/sign_up_screen';
 
   @override
   State<SignUpScreen> createState() => _SignUpScreenState();

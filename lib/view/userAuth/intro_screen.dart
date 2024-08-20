@@ -15,7 +15,6 @@ import 'package:easy_localization/easy_localization.dart';
 
 class IntroScreen extends StatefulWidget {
   const IntroScreen({super.key});
-  static String routeName = '/intro_screen';
   @override
   State<IntroScreen> createState() => _IntroScreenState();
 }

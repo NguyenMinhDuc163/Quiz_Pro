@@ -31,5 +31,16 @@
 
   "dont_worry": "Don't worry! It occurs. Please enter the email address linked with your account.",
   "enter_email_phone": "Enter your email and Phone no.",
-  "send_code": "Send Code"
+  "send_code": "Send Code",
+
+
+  "join_quizz_pro": "Join Quizz Pro as a…",
+  "join_as_student_or_teacher": "Join as a student to take quizzes or as a teacher to create and manage quizzes",
+  "what_fascinates_you": "What fascinates you?",
+  "customized_quiz_experience": "For a customized quiz experience, please select the topics that interest you.",
+  "what_should_we_call_you": "What should we call you?",
+  "you_can_change_later": "You can still change this later.",
+  "name": "Your Name",
+  "teacher": "Teacher",
+  "student": "Student"
 }

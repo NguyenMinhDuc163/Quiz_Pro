@@ -1,12 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quiz_pro/res/core/constants/color_constants.dart';
 import 'package:quiz_pro/res/core/helpers/asset_helper.dart';
 import 'package:quiz_pro/res/core/helpers/local_storage_helper.dart';
 import 'package:quiz_pro/utils/router_names.dart';
-
 import '../../viewModel/auth_view_model.dart';
 import 'widget/custom_rich_text_widget.dart';
 import 'widget/dividerR_row_widget.dart';
@@ -20,7 +18,6 @@ import 'widget/terms_and_privacyText_widget.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
-  static const String routeName = '/login_screen';
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -193,16 +190,18 @@ class _LoginScreenState extends State<LoginScreen> {
                     PrimaryButtonWidget(
                       elevation: 0,
                       onTap: () async {
-                        try {
-                          await authViewModel.signInWithMagicLink(
-                            emailC.text.trim(),
-                            redirectUrl: kIsWeb ? null : 'io.supabase.flutterquickstart://login-callback/',
-                          );
-                          // Navigate to another screen after successful login
-                        } catch (e) {
-                          // Handle login error
-                          print(e);
-                        }
+                        // try {
+                        //   await authViewModel.signInWithMagicLink(
+                        //     emailC.text.trim(),
+                        //     redirectUrl: kIsWeb ? null : 'io.supabase.flutterquickstart://login-callback/',
+                        //   );
+                        //   // Navigate to another screen after successful login
+                        // } catch (e) {
+                        //   // Handle login error
+                        //   print(e);
+                        // }R
+                        // Navigator.pushNamed(context, RouteNames.mainApp);
+                        Navigator.pushNamed(context, RouteNames.edenSignUpView);
                       },
                       text: 'login'.tr(),
                       bgColor: ColorPalette.kPrimary,

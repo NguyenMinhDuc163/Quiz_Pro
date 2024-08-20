@@ -46,6 +46,9 @@ dependencies:
   supabase_flutter: ^2.6.0
   flutter_dotenv: ^5.1.0
   flutter_launcher_icons: ^0.13.1
+  curved_labeled_navigation_bar: ^2.0.2
+  animate_do: ^3.3.4
+  flutter_svg: ^2.0.10+1
 dev_dependencies:
   flutter_test:
     sdk: flutter

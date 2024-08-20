@@ -30,5 +30,15 @@
   "or_sign_up_with": "Hoặc đăng ký bằng",
   "dont_worry": "Không sao đâu! Điều này vẫn thường xảy ra. Bạn hãy nhập địa chỉ email mà bạn đã dùng để đăng ký tài khoản.",
   "enter_email_phone": "Nhập email và số điện thoại của bạn.",
-  "send_code": "Gửi mã xác nhận"
+  "send_code": "Gửi mã xác nhận",
+
+  "join_quizz_pro": "Tham gia Quizz Pro với vai trò...",
+  "join_as_student_or_teacher": "Tham gia với tư cách học sinh để làm bài kiểm tra hoặc giáo viên để tạo và quản lý bài kiểm tra",
+  "what_fascinates_you": "Bạn yêu thích chủ đề gì?",
+  "customized_quiz_experience": "Để có trải nghiệm bài kiểm tra phù hợp, vui lòng chọn những chủ đề bạn quan tâm.",
+  "what_should_we_call_you": "Bạn muốn chúng tôi gọi bạn là gì?",
+  "you_can_change_later": "Bạn vẫn có thể thay đổi sau.",
+  "name": "Tên của bạn",
+  "teacher": "Giáo viên",
+  "student": "Học sinh"
 }
