@@ -16,7 +16,7 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.22.2' # Điều chỉnh phiên bản Flutter bạn cần
+          flutter-version: '3.22.2' 
 
       - name: Create .env file
         run: echo "${{ secrets.ENV_FILE_CONTENTS }}" > .env
@@ -43,10 +43,10 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.22.2' # Điều chỉnh phiên bản Flutter bạn cần
+          flutter-version: '3.22.2' 
 
-      - name: Create .env file for iOS
-        run: echo "${{ secrets.ENV_FILE_CONTENTS }}" > ios/.env
+      - name: Create .env file
+        run: echo "${{ secrets.ENV_FILE_CONTENTS }}" > .env
 
       - name: Install dependencies
         run: flutter pub get
@@ -62,3 +62,4 @@ jobs:
         with:
           name: ipa
           path: build/ios/iphoneos/Runner.app
+
