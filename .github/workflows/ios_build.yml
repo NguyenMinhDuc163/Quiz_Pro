@@ -45,6 +45,9 @@ jobs:
         with:
           flutter-version: '3.22.2' # Điều chỉnh phiên bản Flutter bạn cần
 
+      - name: Create .env file for iOS
+        run: echo "${{ secrets.ENV_FILE_CONTENTS }}" > ios/.env
+
       - name: Install dependencies
         run: flutter pub get
 
