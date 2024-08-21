@@ -32,35 +32,31 @@ class TopBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-    const Text(
-    "Find your favorie food",
-        style: TextStyle(
-        color: Colors.black, fontSize: 30, fontWeight: FontWeight.bold),
-    ),
-    Container(
-    decoration: BoxDecoration(boxShadow: [
-    BoxShadow(
-    offset: const Offset(12, 26),
-    blurRadius: 50,
-    spreadRadius: 0,
-    color: Colors.grey.withOpacity(.25)),
-    ]),
-    child: const CircleAvatar(
-    radius: 25,
-    backgroundColor: Colors.white,
-    child: Icon(
-    Icons.icecream,
-    size: 25,
-    color: Color(0xff53E88B),
-    ),
-    ),
-    )
-    ],
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          "Find your favorie food",
+          style: TextStyle(color: Colors.black, fontSize: 30, fontWeight: FontWeight.bold),
+        ),
+        Container(
+          decoration: BoxDecoration(boxShadow: [
+            BoxShadow(
+                offset: const Offset(12, 26), blurRadius: 50, spreadRadius: 0, color: Colors.grey.withOpacity(.25)),
+          ]),
+          child: const CircleAvatar(
+            radius: 25,
+            backgroundColor: Colors.white,
+            child: Icon(
+              Icons.icecream,
+              size: 25,
+              color: Color(0xff53E88B),
+            ),
+          ),
+        )
+      ],
     );
-    }
+  }
 }
 
 class SearchInput extends StatelessWidget {
@@ -72,11 +68,7 @@ class SearchInput extends StatelessWidget {
       padding: const EdgeInsets.only(top: 8.0),
       child: Container(
         decoration: BoxDecoration(boxShadow: [
-          BoxShadow(
-              offset: const Offset(12, 26),
-              blurRadius: 50,
-              spreadRadius: 0,
-              color: Colors.grey.withOpacity(.1)),
+          BoxShadow(offset: const Offset(12, 26), blurRadius: 50, spreadRadius: 0, color: Colors.grey.withOpacity(.1)),
         ]),
         child: TextField(
           onChanged: (value) {
@@ -88,8 +80,7 @@ class SearchInput extends StatelessWidget {
             fillColor: Colors.white,
             hintText: 'Search',
             hintStyle: TextStyle(color: Colors.grey),
-            contentPadding:
-            EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+            contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(15.0)),
             ),
@@ -120,34 +111,30 @@ class PromoCard extends StatelessWidget {
         height: 150,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
-            gradient: const LinearGradient(
-                colors: [Color(0xff53E88B), Color(0xff15BE77)])),
+            gradient: const LinearGradient(colors: [Color(0xff53E88B), Color(0xff15BE77)])),
         child: Stack(
           children: [
-          Opacity(
-          opacity: .5,
-          child: Image.network(
-              "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/BACKGROUND%202.png?alt=media&token=0d003860-ba2f-4782-a5ee-5d5684cdc244",
-              fit: BoxFit.cover),
-        ),
-        Image.network(
-            "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/Image.png?alt=media&token=8256c357-cf86-4f76-8c4d-4322d1ebc06c"),
-        const Align(
-          alignment: Alignment.topRight,
-          child: Padding(
-            padding: EdgeInsets.all(25.0),
-            child: Text(
-                "Want some icecream?",
-            style: TextStyle(
-            color: Colors.white,
-                fontSize: 22,
-                fontWeight: FontWeight.bold),
-          ),
+            Opacity(
+              opacity: .5,
+              child: Image.network(
+                  "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/BACKGROUND%202.png?alt=media&token=0d003860-ba2f-4782-a5ee-5d5684cdc244",
+                  fit: BoxFit.cover),
+            ),
+            Image.network(
+                "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/Image.png?alt=media&token=8256c357-cf86-4f76-8c4d-4322d1ebc06c"),
+            const Align(
+              alignment: Alignment.topRight,
+              child: Padding(
+                padding: EdgeInsets.all(25.0),
+                child: Text(
+                  "Want some icecream?",
+                  style: TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
-      ],
-    ),
-    ),
     );
   }
 }
@@ -165,24 +152,17 @@ class Headline extends StatelessWidget {
           children: [
             Text(
               "Nearest Restaurants",
-              style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 18,
-                  fontWeight: FontWeight.normal),
+              style: TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.normal),
             ),
             Text(
               "The best food close to you",
-              style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 12,
-                  fontWeight: FontWeight.normal),
+              style: TextStyle(color: Colors.grey, fontSize: 12, fontWeight: FontWeight.normal),
             ),
           ],
         ),
         Text(
           "View More",
-          style: TextStyle(
-              color: Color(0xff15BE77), fontWeight: FontWeight.normal),
+          style: TextStyle(color: Color(0xff15BE77), fontWeight: FontWeight.normal),
         ),
       ],
     );
@@ -202,24 +182,17 @@ class SHeadline extends StatelessWidget {
           children: [
             Text(
               "Popular Menu",
-              style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 18,
-                  fontWeight: FontWeight.normal),
+              style: TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.normal),
             ),
             Text(
               "The best food for you",
-              style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 12,
-                  fontWeight: FontWeight.normal),
+              style: TextStyle(color: Colors.grey, fontSize: 12, fontWeight: FontWeight.normal),
             ),
           ],
         ),
         Text(
           "View More",
-          style: TextStyle(
-              color: Color(0xff15BE77), fontWeight: FontWeight.normal),
+          style: TextStyle(color: Color(0xff15BE77), fontWeight: FontWeight.normal),
         ),
       ],
     );
@@ -263,13 +236,12 @@ class Card extends StatelessWidget {
   final String imageUrl;
   final String subtitle;
 
-  const Card(this.text, this.imageUrl, this.subtitle, {Key? key})
-      : super(key: key);
+  const Card(this.text, this.imageUrl, this.subtitle, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 15,right: 15),
+      padding: const EdgeInsets.only(bottom: 15, right: 15),
       child: Container(
         width: 150,
         height: 150,
@@ -279,10 +251,7 @@ class Card extends StatelessWidget {
           borderRadius: BorderRadius.circular(12.5),
           boxShadow: [
             BoxShadow(
-                offset: const Offset(10, 20),
-                blurRadius: 10,
-                spreadRadius: 0,
-                color: Colors.grey.withOpacity(.05)),
+                offset: const Offset(10, 20), blurRadius: 10, spreadRadius: 0, color: Colors.grey.withOpacity(.05)),
           ],
         ),
         child: Column(
@@ -302,10 +271,7 @@ class Card extends StatelessWidget {
             Text(
               subtitle,
               textAlign: TextAlign.center,
-              style: const TextStyle(
-                  color: Colors.grey,
-                  fontWeight: FontWeight.normal,
-                  fontSize: 12),
+              style: const TextStyle(color: Colors.grey, fontWeight: FontWeight.normal, fontSize: 12),
             ),
             const SizedBox(
               height: 10,

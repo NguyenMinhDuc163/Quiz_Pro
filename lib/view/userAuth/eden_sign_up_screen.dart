@@ -126,7 +126,7 @@ class _EdenSignUpViewState extends State<EdenSignUpView> with TickerProviderStat
                       child: PrimaryButton(
                         onTap: () {
                           scaleController.forward();
-                          Navigator.pushNamed(context, RouteNames.homeScreen);
+                          Navigator.pushNamed(context, RouteNames.mainApp);
                         },
                         text: scaleController.isAnimating || scaleController.isCompleted ? '' : 'Continue',
                       ),
