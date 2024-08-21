@@ -1,0 +1,35 @@
+name: Deploy Flutter Web
+
+on:
+  push:
+    branches:
+      - main  # Thực hiện deploy mỗi khi có push lên nhánh main
+  workflow_dispatch:  # Cho phép chạy workflow thủ công từ GitHub Actions UI
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.22.2'  # Điều chỉnh phiên bản Flutter bạn muốn sử dụng
+
+      - name: Create .env file
+        run: echo "${{ secrets.ENV_FILE_CONTENTS }}" > .env
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Build Flutter Web
+        run: flutter build web --release
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build/web
