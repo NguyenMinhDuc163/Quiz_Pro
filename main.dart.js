@@ -98938,7 +98938,7 @@ A.ayk.prototype={
 $0(){var s=this.a.r
 s===$&&A.b()
 s.bZ(0)
-A.amr(this.b,"/home_screen",t.X)},
+A.amr(this.b,"/main_app",t.X)},
 $S:0}
 A.BB.prototype={
 ai(){return new A.a2l(A.a([],t.vN),B.k)}}
