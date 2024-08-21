@@ -8,6 +8,9 @@ mixin AssetHelper {
   static const String icoRectanglePink = '${_baseIconPath}ico_rectangle_pink.png';
   static const String icoVN = '${_baseIconPath}ico_vn.png';
   static const String icoAmerica = '${_baseIconPath}ico_america.png';
+  static const String leaderboard = '${_baseIconPath}leaderboard.png';
+  static const String quizzes = '${_baseIconPath}quizzes.png';
+  static const String friends = '${_baseIconPath}friends.png';
 
 
 
@@ -19,6 +22,7 @@ mixin AssetHelper {
   static const String kTeacher = '${_baseImagePath}teacher.png';
   static const String kStudent = '${_baseImagePath}student.png';
   static const String onboarding_1 = '${_baseImagePath}onboarding_1.png';
+  static const String quizz = '${_baseImagePath}quizz.png';
   // static const String kStudent = '${_baseImagePath}onboarding_2.png';
   // static const String kStudent = '${_baseImagePath}onboarding_3.png';
 

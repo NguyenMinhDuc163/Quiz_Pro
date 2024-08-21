@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:quiz_pro/res/core/constants/color_constants.dart';
 
 import '../../../res/core/helpers/asset_helper.dart';
 import '../../../res/core/helpers/image_helper.dart';
@@ -41,7 +42,8 @@ class _SplashScreenState extends State<SplashScreen> {
     return Stack(
       children: [
         Positioned.fill(
-          child: Container(color: const Color(0xFFF5EDE2),),
+          // child: Container(color: const Color(0xFFF5EDE2),),
+          child: Container(color: ColorPalette.slateGray,),
         ), // cho full man hinh
         Center( // Sử dụng Center để hình ảnh nằm giữa
           child: ImageHelper.loadFromAsset(

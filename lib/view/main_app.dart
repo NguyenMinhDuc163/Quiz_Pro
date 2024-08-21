@@ -1,7 +1,11 @@
 import 'package:curved_labeled_navigation_bar/curved_navigation_bar.dart';
 import 'package:curved_labeled_navigation_bar/curved_navigation_bar_item.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:quiz_pro/res/core/constants/color_constants.dart';
+import 'package:quiz_pro/res/core/helpers/asset_helper.dart';
 import 'package:quiz_pro/view/home/home_screen.dart';
 
 
@@ -21,36 +25,31 @@ class _MainAppState extends State<MainApp> {
 
       body: HomeScreen(),
       bottomNavigationBar: CurvedNavigationBar(
+        height: 60,
         key: _bottomNavigationKey,
-        index: 0,
-        items: [
+        index: 2,
+        items:  [
           CurvedNavigationBarItem(
-            // child: Image.asset(Icons.home),
-            child: Icon(Icons.home),
-            // label: LocaleKeys.home.tr(),
+            child: const Icon(FontAwesomeIcons.house),
+            label: 'home'.tr(),
           ),
           CurvedNavigationBarItem(
-            // child: Image.asset(AssetPath.icoGift2),
-            child: Icon(Icons.card_giftcard),
-            // label: LocaleKeys.gift.tr(),
+            child: Image.asset(AssetHelper.quizzes),
+            label: 'quizzes'.tr(),
+          ),
+          const CurvedNavigationBarItem(
+            child: Icon(FontAwesomeIcons.plus),
           ),
           CurvedNavigationBarItem(
-            // child: Image.asset(AssetPath.icoQR),
-            child: Icon(Icons.qr_code),
-            label: 'QR',
+            child: Image.asset(AssetHelper.leaderboard),
+            label: 'leaderboard'.tr(),
           ),
           CurvedNavigationBarItem(
-            // child: Image.asset(AssetPath.icoNotification),
-            child: Icon(Icons.notifications),
-            // label: LocaleKeys.notiHome.tr(),
-          ),
-          CurvedNavigationBarItem(
-            // child: Image.asset(AssetPath.icoSetting),
-            child: Icon(Icons.settings),
-            // label: LocaleKeys.setting.tr(),
+            child: Image.asset(AssetHelper.friends),
+            label:'friends'.tr(),
           ),
         ],
-        color: Colors.white,
+        color: ColorPalette.darkSlateGray,
         buttonBackgroundColor: Colors.white,
         backgroundColor: Colors.red.shade200,
         animationCurve: Curves.easeInOut,

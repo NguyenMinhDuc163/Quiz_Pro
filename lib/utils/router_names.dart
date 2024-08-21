@@ -9,7 +9,7 @@ class RouteNames {
   static const String quizzesScreen = '/quizzes_screen';
   static const String friendScreen = '/friend_screen';
   static const String mainApp = '/main_app';
-  static const String edenSignUpView = '/eden_sign_up_view';
+  static const String selectPreferencesScreen = '/select_preferences_screen';
 
 
 }

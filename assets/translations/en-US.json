@@ -42,5 +42,18 @@
   "you_can_change_later": "You can still change this later.",
   "name": "Your Name",
   "teacher": "Teacher",
-  "student": "Student"
+  "student": "Student",
+  "ready_to_test_your_knowledge": "Ready to quiz?",
+  "your_quizzes": "Your Quizzes",
+  "see_all": "See all",
+  "start_a_quick_quiz": "Start a quick quiz!",
+  "get_started_now": "Get started now!",
+  "top_players": "Top Players – Your rank?",
+  "beat_the_best": "Beat the best!",
+  "start_now": "Start Now",
+  "home": "Home",
+  "quizzes": "Quizzes",
+  "leaderboard": "Leaderboard",
+  "friends": "Friends"
+
 }

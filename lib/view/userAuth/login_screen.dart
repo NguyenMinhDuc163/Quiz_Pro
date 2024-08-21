@@ -46,6 +46,22 @@ class _LoginScreenState extends State<LoginScreen> {
     super.dispose();
   }
 
+  void redirectSelectPreferencesScreen() async{
+    // man hinh nay chi xuat hien trong lan khoi dong dau tien
+    final ignoreSelectPreferencesScreen = LocalStorageHelper.getValue('ignoreSelectPreferencesScreen') as bool?;
+    await Future.delayed(const Duration(milliseconds: 1000));
+    if(ignoreSelectPreferencesScreen != null && ignoreSelectPreferencesScreen){
+      Navigator.of(context).pushNamed(RouteNames.mainApp);
+      // Navigator.of(context).pushNamed(IntroScreen.routeName);
+
+    }
+    else{
+      LocalStorageHelper.setValue('ignoreSelectPreferencesScreen', true);
+      Navigator.of(context).pushNamed(RouteNames.selectPreferencesScreen);
+    }
+    // Navigator.of(context).pushNamed(RouteNames.introScreen);
+  }
+
   @override
   Widget build(BuildContext context) {
     final authViewModel = Provider.of<AuthViewModel>(context);
@@ -190,18 +206,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     PrimaryButtonWidget(
                       elevation: 0,
                       onTap: () async {
-                        // try {
-                        //   await authViewModel.signInWithMagicLink(
-                        //     emailC.text.trim(),
-                        //     redirectUrl: kIsWeb ? null : 'io.supabase.flutterquickstart://login-callback/',
-                        //   );
-                        //   // Navigate to another screen after successful login
-                        // } catch (e) {
-                        //   // Handle login error
-                        //   print(e);
-                        // }R
-                        // Navigator.pushNamed(context, RouteNames.mainApp);
-                        Navigator.pushNamed(context, RouteNames.edenSignUpView);
+                        // final rs =  await authViewModel.signIn(emailC.text, passwordC.text);
+                        redirectSelectPreferencesScreen();
                       },
                       text: 'login'.tr(),
                       bgColor: ColorPalette.kPrimary,

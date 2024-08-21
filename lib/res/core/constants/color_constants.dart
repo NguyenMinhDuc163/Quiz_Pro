@@ -32,6 +32,8 @@ class ColorPalette {
   static const Color kLightPink = Color(0xFFF5D3BB);
   static const Color kLightPink2 = Color(0xFFFFE2CD);
   static const Color kLightBrown = Color(0xFF73665C);
+  static const Color slateGray = Color(0xFFC6E2FF);
+  static const Color darkSlateGray = Color(0xFF99CCFF);
 
   static BoxShadow defaultShadow = BoxShadow(
     color: ColorPalette.kPrimary.withOpacity(0.2),

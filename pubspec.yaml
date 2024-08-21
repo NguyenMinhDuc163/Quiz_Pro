@@ -49,6 +49,8 @@ dependencies:
   curved_labeled_navigation_bar: ^2.0.2
   animate_do: ^3.3.4
   flutter_svg: ^2.0.10+1
+  font_awesome_flutter: ^10.7.0
+  fluttertoast: ^8.2.8
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -6,7 +6,7 @@ import 'package:quiz_pro/view/home/home_screen.dart';
 import 'package:quiz_pro/view/leaderBoard/leader_board.dart';
 import 'package:quiz_pro/view/main_app.dart';
 import 'package:quiz_pro/view/quizzes/quizzes_screen.dart';
-import 'package:quiz_pro/view/userAuth/eden_sign_up_screen.dart';
+import 'package:quiz_pro/view/userAuth/seslect_preferences_screen.dart';
 import 'package:quiz_pro/view/userAuth/forgot_password_screen.dart';
 import 'package:quiz_pro/view/userAuth/intro_screen.dart';
 import 'package:quiz_pro/view/userAuth/login_screen.dart';
@@ -25,7 +25,7 @@ final Map<String, WidgetBuilder> routes = {
   RouteNames.leaderBoardScreen: (context) => const LeaderBoard(),
   RouteNames.quizzesScreen: (context) => const QuizzesScreen(),
   RouteNames.mainApp: (context) => const MainApp(),
-  RouteNames.edenSignUpView: (context) => const EdenSignUpView(),
+  RouteNames.selectPreferencesScreen: (context) => const SelectPreferencesScreen(),
 
 
 

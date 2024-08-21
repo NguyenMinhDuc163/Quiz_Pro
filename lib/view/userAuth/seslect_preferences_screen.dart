@@ -9,14 +9,14 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 enum UserType { teacher, student }
 
-class EdenSignUpView extends StatefulWidget {
-  const EdenSignUpView({super.key});
+class SelectPreferencesScreen extends StatefulWidget {
+  const SelectPreferencesScreen({super.key});
 
   @override
-  State<EdenSignUpView> createState() => _EdenSignUpViewState();
+  State<SelectPreferencesScreen> createState() => _SelectPreferencesScreenState();
 }
 
-class _EdenSignUpViewState extends State<EdenSignUpView> with TickerProviderStateMixin {
+class _SelectPreferencesScreenState extends State<SelectPreferencesScreen> with TickerProviderStateMixin {
   final PageController _pageController = PageController();
   int _currentIndex = 0;
 

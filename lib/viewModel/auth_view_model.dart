@@ -6,25 +6,27 @@ class AuthViewModel extends ChangeNotifier {
   UserModel? _user;
 
   UserModel? get user => _user;
+  final SupabaseClient supabase = Supabase.instance.client;
 
   Future<void> signUp(String email, String password) async {
     try {
-      final response = await Supabase.instance.client.auth.signUp(
+      final authResponse = await Supabase.instance.client.auth.signUp(
         email: email,
         password: password,
       );
 
-      if (response.user != null) {
-        _user = UserModel(id: response.user!.id, email: response.user!.email!);
-        notifyListeners();
+      if (authResponse.user != null) {
+        // Đăng ký thành công, xử lý tiếp ở đây
+        print('Đăng ký thành công!');
       } else {
-        throw Exception('Sign Up Failed');
+        // Đăng ký thất bại, hiển thị thông báo lỗi
+        print('Đăng ký thất bại: ');
       }
     } catch (e) {
       throw Exception('Sign Up Failed: $e');
     }
-
   }
+
 
   Future<void> signIn(String email, String password) async {
     try {

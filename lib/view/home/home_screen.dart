@@ -1,14 +1,18 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:quiz_pro/res/core/constants/color_constants.dart';
+import 'package:quiz_pro/res/core/constants/dimension_constants.dart';
+import 'package:quiz_pro/res/core/helpers/asset_helper.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: ColorPalette.kWhite,
-        body: const SafeArea(
+    return const Scaffold(
+        backgroundColor: ColorPalette.slateGray,
+        body: SafeArea(
           child: SingleChildScrollView(
             padding: EdgeInsets.all(20),
             child: Column(
@@ -35,9 +39,10 @@ class TopBar extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
-          "Find your favorie food",
-          style: TextStyle(color: Colors.black, fontSize: 30, fontWeight: FontWeight.bold),
+         Text(
+          "ready_to_test_your_knowledge".tr(),
+          style: const TextStyle(color: Colors.black, fontSize: 30, fontWeight: FontWeight.bold),
+           overflow: TextOverflow.ellipsis,
         ),
         Container(
           decoration: BoxDecoration(boxShadow: [
@@ -48,8 +53,8 @@ class TopBar extends StatelessWidget {
             radius: 25,
             backgroundColor: Colors.white,
             child: Icon(
-              Icons.icecream,
-              size: 25,
+              FontAwesomeIcons.user,
+              size: 20,
               color: Color(0xff53E88B),
             ),
           ),
@@ -120,18 +125,38 @@ class PromoCard extends StatelessWidget {
                   "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/BACKGROUND%202.png?alt=media&token=0d003860-ba2f-4782-a5ee-5d5684cdc244",
                   fit: BoxFit.cover),
             ),
-            Image.network(
-                "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/Image.png?alt=media&token=8256c357-cf86-4f76-8c4d-4322d1ebc06c"),
-            const Align(
+            // Image.network(
+            //     "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/Image.png?alt=media&token=8256c357-cf86-4f76-8c4d-4322d1ebc06c"),
+            Image.asset(AssetHelper.quizz, fit: BoxFit.cover),
+            Align(
               alignment: Alignment.topRight,
               child: Padding(
                 padding: EdgeInsets.all(25.0),
                 child: Text(
-                  "Want some icecream?",
+                  "get_started_now".tr(),
                   style: TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
                 ),
               ),
             ),
+            Align(
+              alignment: Alignment.bottomRight,
+              child: Padding(
+                padding: const EdgeInsets.all(kDefaultPadding),
+                child: ElevatedButton(
+                  onPressed: () {
+                    // TODO Thực hiện hành động khi nhấn nút
+                  },
+                  style: ElevatedButton.styleFrom(
+                    foregroundColor: Colors.white, backgroundColor: Colors.blue, // Màu của text
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20), // Bo góc của button
+                    ),
+                  ),
+                  child: Text('start_now'.tr()),
+                ),
+              )
+              ,
+            )
           ],
         ),
       ),
@@ -144,25 +169,25 @@ class Headline extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return  Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Nearest Restaurants",
+              "your_quizzes".tr(),
               style: TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.normal),
             ),
             Text(
-              "The best food close to you",
+              "start_a_quick_quiz".tr(),
               style: TextStyle(color: Colors.grey, fontSize: 12, fontWeight: FontWeight.normal),
             ),
           ],
         ),
         Text(
-          "View More",
-          style: TextStyle(color: Color(0xff15BE77), fontWeight: FontWeight.normal),
+          "see_all".tr(),
+          style: TextStyle(color: Colors.blueAccent, fontWeight: FontWeight.normal),
         ),
       ],
     );
@@ -174,25 +199,25 @@ class SHeadline extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return  Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Popular Menu",
-              style: TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.normal),
+              "top_players".tr(),
+              style: const TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.normal),
             ),
             Text(
-              "The best food for you",
-              style: TextStyle(color: Colors.grey, fontSize: 12, fontWeight: FontWeight.normal),
+              "beat_the_best".tr(),
+              style: const TextStyle(color: Colors.grey, fontSize: 12, fontWeight: FontWeight.normal),
             ),
           ],
         ),
         Text(
-          "View More",
-          style: TextStyle(color: Color(0xff15BE77), fontWeight: FontWeight.normal),
+          "see_all".tr(),
+          style: const TextStyle(color: Colors.blueAccent, fontWeight: FontWeight.normal),
         ),
       ],
     );
