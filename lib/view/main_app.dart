@@ -3,6 +3,7 @@ import 'package:curved_labeled_navigation_bar/curved_navigation_bar_item.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:quiz_pro/res/core/constants/color_constants.dart';
 import 'package:quiz_pro/res/core/helpers/asset_helper.dart';
@@ -30,22 +31,22 @@ class _MainAppState extends State<MainApp> {
         index: 2,
         items:  [
           CurvedNavigationBarItem(
-            child: const Icon(FontAwesomeIcons.house),
+            child: SvgPicture.asset(AssetHelper.icoHome),
             label: 'home'.tr(),
           ),
           CurvedNavigationBarItem(
-            child: Image.asset(AssetHelper.quizzes),
+            child: SvgPicture.asset(AssetHelper.quizzes),
             label: 'quizzes'.tr(),
           ),
           const CurvedNavigationBarItem(
             child: Icon(FontAwesomeIcons.plus),
           ),
           CurvedNavigationBarItem(
-            child: Image.asset(AssetHelper.leaderboard),
+            child: SvgPicture.asset(AssetHelper.leaderboard),
             label: 'leaderboard'.tr(),
           ),
           CurvedNavigationBarItem(
-            child: Image.asset(AssetHelper.friends),
+            child: SvgPicture.asset(AssetHelper.friends),
             label:'friends'.tr(),
           ),
         ],

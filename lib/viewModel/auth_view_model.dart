@@ -66,4 +66,8 @@ class AuthViewModel extends ChangeNotifier {
       throw Exception('Sign Out Failed: $e');
     }
   }
+
+
+
+
 }

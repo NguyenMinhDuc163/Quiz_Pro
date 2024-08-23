@@ -51,6 +51,10 @@ dependencies:
   flutter_svg: ^2.0.10+1
   font_awesome_flutter: ^10.7.0
   fluttertoast: ^8.2.8
+  firebase_core: ^2.25.4
+  cloud_firestore: ^4.15.5
+  firebase_auth: ^4.17.4
+  firebase_storage: ^11.6.6
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -23,6 +23,8 @@ if (flutterVersionName == null) {
     flutterVersionName = "1.0"
 }
 
+apply plugin : 'com.google.gms.google-services'
+
 android {
     namespace = "com.example.quiz_pro"
     compileSdk = flutter.compileSdkVersion
@@ -38,7 +40,7 @@ android {
         applicationId = "com.example.quiz_pro"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdk = flutter.minSdkVersion
+        minSdk = 21
         targetSdk = flutter.targetSdkVersion
         versionCode = flutterVersionCode.toInteger()
         versionName = flutterVersionName

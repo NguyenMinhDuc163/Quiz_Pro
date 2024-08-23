@@ -1,6 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:quiz_pro/res/core/constants/color_constants.dart';
 import 'package:quiz_pro/res/core/constants/dimension_constants.dart';
 import 'package:quiz_pro/res/core/helpers/asset_helper.dart';
@@ -49,14 +49,15 @@ class TopBar extends StatelessWidget {
             BoxShadow(
                 offset: const Offset(12, 26), blurRadius: 50, spreadRadius: 0, color: Colors.grey.withOpacity(.25)),
           ]),
-          child: const CircleAvatar(
+          child:  CircleAvatar(
             radius: 25,
             backgroundColor: Colors.white,
-            child: Icon(
-              FontAwesomeIcons.user,
-              size: 20,
-              color: Color(0xff53E88B),
-            ),
+            // child: Icon(
+            //   FontAwesomeIcons.user,
+            //   size: 20,
+            //   color: Color(0xff53E88B),
+            // ),
+            child: SvgPicture.asset(AssetHelper.icoUser),
           ),
         )
       ],
@@ -79,21 +80,21 @@ class SearchInput extends StatelessWidget {
           onChanged: (value) {
             //Do something wi
           },
-          decoration: const InputDecoration(
-            prefixIcon: Icon(Icons.search),
+          decoration:  InputDecoration(
+            prefixIcon: const Icon(Icons.search),
             filled: true,
             fillColor: Colors.white,
-            hintText: 'Search',
-            hintStyle: TextStyle(color: Colors.grey),
-            contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-            border: OutlineInputBorder(
+            hintText: 'search'.tr(),
+            hintStyle: const TextStyle(color: Colors.grey),
+            contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+            border: const OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(15.0)),
             ),
-            enabledBorder: OutlineInputBorder(
+            enabledBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: Colors.white, width: 1.0),
               borderRadius: BorderRadius.all(Radius.circular(15.0)),
             ),
-            focusedBorder: OutlineInputBorder(
+            focusedBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: Colors.white, width: 2.0),
               borderRadius: BorderRadius.all(Radius.circular(15.0)),
             ),
@@ -121,17 +122,15 @@ class PromoCard extends StatelessWidget {
           children: [
             Opacity(
               opacity: .5,
-              child: Image.network(
-                  "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/BACKGROUND%202.png?alt=media&token=0d003860-ba2f-4782-a5ee-5d5684cdc244",
+              child: Image.asset(
+                  AssetHelper.backgroundCard,
                   fit: BoxFit.cover),
             ),
-            // Image.network(
-            //     "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/Image.png?alt=media&token=8256c357-cf86-4f76-8c4d-4322d1ebc06c"),
             Image.asset(AssetHelper.quizz, fit: BoxFit.cover),
             Align(
               alignment: Alignment.topRight,
               child: Padding(
-                padding: EdgeInsets.all(25.0),
+                padding: const EdgeInsets.all(12.0),
                 child: Text(
                   "get_started_now".tr(),
                   style: TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
@@ -194,35 +193,61 @@ class Headline extends StatelessWidget {
   }
 }
 
-class SHeadline extends StatelessWidget {
-  const SHeadline({Key? key}) : super(key: key);
+class SHeadline extends StatefulWidget {
+  const SHeadline({super.key, this.topPlayers});
+  final List<String>? topPlayers;
+  @override
+  State<SHeadline> createState() => _SHeadlineState();
+}
 
+class _SHeadlineState extends State<SHeadline> {
   @override
   Widget build(BuildContext context) {
-    return  Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return Column(
       children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-              "top_players".tr(),
-              style: const TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.normal),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "top_players".tr(),
+                  style: const TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.normal),
+                ),
+                Text(
+                  "beat_the_best".tr(),
+                  style: const TextStyle(color: Colors.grey, fontSize: 12, fontWeight: FontWeight.normal),
+                ),
+              ],
             ),
             Text(
-              "beat_the_best".tr(),
-              style: const TextStyle(color: Colors.grey, fontSize: 12, fontWeight: FontWeight.normal),
+              "see_all".tr(),
+              style: const TextStyle(color: Colors.blueAccent, fontWeight: FontWeight.normal),
             ),
           ],
         ),
-        Text(
-          "see_all".tr(),
-          style: const TextStyle(color: Colors.blueAccent, fontWeight: FontWeight.normal),
-        ),
+        const SizedBox(height: 20), // Đảm bảo kDefaultPadding được định nghĩa hoặc thay thế bằng giá trị
+        // Visibility(
+        //   visible: widget.topPlayers != null,
+        //   replacement: Text('topPlayer'.tr()),
+        //   child: SizedBox(
+        //     height: 200, // Đặt chiều cao cố định cho ListView
+        //     child: ListView.builder(
+        //       shrinkWrap: true, // Cần thiết khi sử dụng ListView bên trong Column
+        //       physics: const NeverScrollableScrollPhysics(), // Tránh cuộn trong trường hợp này
+        //       itemCount: widget.topPlayers!.length,
+        //       itemBuilder: (context, index) {
+        //         return Text(widget.topPlayers![index]);
+        //       },
+        //     ),
+        //   ),
+        // ),
       ],
     );
   }
 }
+
 
 class CardListView extends StatelessWidget {
   const CardListView({Key? key}) : super(key: key);
@@ -236,19 +261,19 @@ class CardListView extends StatelessWidget {
         height: 175,
         child: ListView(
           scrollDirection: Axis.horizontal,
-          children: const [
+          children:  const [
             Card(
-                "Vegan",
-                "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/Resturant%20Image%20(1).png?alt=media&token=461162b1-686b-4b0e-a3ee-fae1cb8b5b33",
-                "8 min away"),
+                text: 'Networking',
+                imageUrl: AssetHelper.icoCard1,
+                subtitle: "8 min away"),
             Card(
-                "Italian ",
-                "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/Restaurant%20Image.png?alt=media&token=43509b4c-269e-4279-8c88-36dc9ed27a66",
-                "12 min away"),
+                text: "Project Management",
+                imageUrl: AssetHelper.icoCard2,
+                subtitle: "12 min away"),
             Card(
-                "Vegan",
-                "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/Resturant%20Image%20(1).png?alt=media&token=461162b1-686b-4b0e-a3ee-fae1cb8b5b33",
-                "15 min away"),
+                text: "Security",
+                imageUrl: AssetHelper.icoCard3,
+                subtitle: "30 min away"),
           ],
         ),
       ),
@@ -260,8 +285,9 @@ class Card extends StatelessWidget {
   final String text;
   final String imageUrl;
   final String subtitle;
+  final Function()? onTap;
+  const Card({super.key, required this.text, required this.imageUrl, required this.subtitle, this.onTap});
 
-  const Card(this.text, this.imageUrl, this.subtitle, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -281,15 +307,19 @@ class Card extends StatelessWidget {
         ),
         child: Column(
           children: [
-            Image.network(imageUrl, height: 70, fit: BoxFit.cover),
+            SvgPicture.asset(imageUrl, height: 70, fit: BoxFit.cover),
             const Spacer(),
             Text(text,
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
-                  fontSize: 18,
-                )),
+                  fontSize: 16,
+                  overflow: TextOverflow.ellipsis,
+                  height: 1
+                ),
+                maxLines: 2
+            ),
             const SizedBox(
               height: 5,
             ),
@@ -299,7 +329,7 @@ class Card extends StatelessWidget {
               style: const TextStyle(color: Colors.grey, fontWeight: FontWeight.normal, fontSize: 12),
             ),
             const SizedBox(
-              height: 10,
+              height: 5,
             ),
           ],
         ),

@@ -8,9 +8,14 @@ mixin AssetHelper {
   static const String icoRectanglePink = '${_baseIconPath}ico_rectangle_pink.png';
   static const String icoVN = '${_baseIconPath}ico_vn.png';
   static const String icoAmerica = '${_baseIconPath}ico_america.png';
-  static const String leaderboard = '${_baseIconPath}leaderboard.png';
-  static const String quizzes = '${_baseIconPath}quizzes.png';
-  static const String friends = '${_baseIconPath}friends.png';
+  static const String leaderboard = '${_baseIconPath}leaderboard.svg';
+  static const String quizzes = '${_baseIconPath}quizzes.svg';
+  static const String friends = '${_baseIconPath}friends.svg';
+  static const String icoHome = '${_baseIconPath}ico_home.svg';
+  static const String icoCard1 = '${_baseIconPath}ico_card_1.svg';
+  static const String icoCard2 = '${_baseIconPath}ico_card_2.svg';
+  static const String icoCard3 = '${_baseIconPath}ico_card_3.svg';
+  static const String icoUser = '${_baseIconPath}ico_user.svg';
 
 
 
@@ -23,7 +28,6 @@ mixin AssetHelper {
   static const String kStudent = '${_baseImagePath}student.png';
   static const String onboarding_1 = '${_baseImagePath}onboarding_1.png';
   static const String quizz = '${_baseImagePath}quizz.png';
-  // static const String kStudent = '${_baseImagePath}onboarding_2.png';
-  // static const String kStudent = '${_baseImagePath}onboarding_3.png';
+  static const String backgroundCard = '${_baseImagePath}background_card.png';
 
 }

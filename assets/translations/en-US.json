@@ -54,6 +54,9 @@
   "home": "Home",
   "quizzes": "Quizzes",
   "leaderboard": "Leaderboard",
-  "friends": "Friends"
+  "friends": "Friends",
+  "search": "Search",
+  "topPlayer" : "The top spot is still waiting for the deserving one!",
+  "continue": "Continue"
 
 }

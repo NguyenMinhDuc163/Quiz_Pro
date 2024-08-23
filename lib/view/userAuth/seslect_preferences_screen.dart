@@ -117,7 +117,7 @@ class _SelectPreferencesScreenState extends State<SelectPreferencesScreen> with 
                         },
                       );
                     },
-                    text: 'Continue',
+                    text: 'continue'.tr(),
                   )
                 : AnimatedBuilder(
                     animation: scaleAnimation,

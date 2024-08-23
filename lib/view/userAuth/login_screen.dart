@@ -1,11 +1,15 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:quiz_pro/global/common/toast.dart';
+import 'package:quiz_pro/models/user_model.dart';
 import 'package:quiz_pro/res/core/constants/color_constants.dart';
 import 'package:quiz_pro/res/core/helpers/asset_helper.dart';
 import 'package:quiz_pro/res/core/helpers/local_storage_helper.dart';
 import 'package:quiz_pro/utils/router_names.dart';
 import '../../viewModel/auth_view_model.dart';
+import '../../viewModel/auth_with_firebase.dart';
 import 'widget/custom_rich_text_widget.dart';
 import 'widget/dividerR_row_widget.dart';
 import 'widget/icon_language_widget.dart';
@@ -26,6 +30,8 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   late TextEditingController emailC;
   late TextEditingController passwordC;
+  final FirebaseAuthService _auth = FirebaseAuthService();
+  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
   bool isVietnamese = true;
   @override
   void initState() {
@@ -206,7 +212,14 @@ class _LoginScreenState extends State<LoginScreen> {
                     PrimaryButtonWidget(
                       elevation: 0,
                       onTap: () async {
-                        // final rs =  await authViewModel.signIn(emailC.text, passwordC.text);
+                        // TODO Login
+                        // User? user = await _auth.signInWithEmailAndPassWord(email: emailC.text, password: passwordC.text);
+                        // UserModel userProvider = await _auth.getDataCurrentUser();
+                        // if(user != null){
+                        //   redirectSelectPreferencesScreen();
+                        // }else{
+                        //   showToast(message: 'Invalid email or password.');
+                        // }
                         redirectSelectPreferencesScreen();
                       },
                       text: 'login'.tr(),

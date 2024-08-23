@@ -1,4 +1,5 @@
 import 'package:error_stack/error_stack.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -11,30 +12,38 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:provider/provider.dart';
 
 import 'providers/provider_setup.dart';
-import 'viewModel/auth_view_model.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
-  Locale defaultLocale = Locale('en', 'US'); // Ngôn ngữ mặc định
-  String? savedLocale = LocalStorageHelper.getValue('languageCode');
-  if (savedLocale != null) {
-    defaultLocale = Locale(savedLocale);
-  }
   await Hive.initFlutter();
   await LocalStorageHelper.initLocalStorageHelper();
   await dotenv.load(fileName: ".env");
 
-  // Initialize Supabase with variables from .env
+  await Firebase.initializeApp(
+      options:  FirebaseOptions(
+        apiKey: dotenv.env['API_KEY']!,
+        appId: dotenv.env['APP_ID']!,
+        messagingSenderId: dotenv.env['MESSAGING_SENDER_ID']!,
+        projectId: dotenv.env['PROJECT_ID']!,
+      )
+  );
+
   await Supabase.initialize(
     url: dotenv.env['SUPABASE_URL']!,
     anonKey: dotenv.env['SUPABASE_ANON_KEY']!,
   );
 
+
+  Locale defaultLocale = const Locale('en', 'US'); // Ngôn ngữ mặc định
+  String? savedLocale = LocalStorageHelper.getValue('languageCode');
+  if (savedLocale != null) {
+    defaultLocale = Locale(savedLocale);
+  }
+
   // Initialize ErrorStack
   await ErrorStack.init();
 
-  // Run the app
   runApp(
     EasyLocalization(
       supportedLocales: const [Locale('en', 'US'), Locale('vi', 'VN')],
@@ -56,7 +65,7 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       builder: (context, child) {
         return MaterialApp(
-          title: 'Quiz',
+          title: 'Quizz Pro',
           localizationsDelegates: context.localizationDelegates,
           supportedLocales: context.supportedLocales,
           locale: context.locale,

@@ -1,8 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quiz_pro/res/core/constants/color_constants.dart';
 import 'package:quiz_pro/res/core/helpers/asset_helper.dart';
+import 'package:quiz_pro/viewModel/auth_with_firebase.dart';
+// import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../../viewModel/auth_view_model.dart';
 import 'widget/custom_rich_text_widget.dart';
@@ -25,7 +28,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   late TextEditingController lastName; // Sửa lại tên biến từ `listName` thành `lastName`
   late TextEditingController emailC;
   late TextEditingController passwordC;
-
+  final FirebaseAuthService _auth = FirebaseAuthService();
   @override
   void initState() {
     super.initState();
@@ -179,18 +182,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     PrimaryButtonWidget(
                       elevation: 0,
                       onTap: () async {
-                        try {
-                          // await authViewModel.signUp(emailC.text, passwordC.text);
-                          // // Navigate to another screen after successful signup
-                          await authViewModel.signUp(
-                            emailC.text.trim(),
-                            passwordC.text.trim(),
-                          );
-                          // Navigate to another screen after successful login
-                        } catch (e) {
-                          // Handle signup error
-                          print(e);
-                        }
+                        //TODO sign up
+                        User? user = await _auth.signUpWithEmailAndPassWord(email: emailC.text, password: passwordC.text);
+
                       },
                       text: 'create_account'.tr(),
                       bgColor: ColorPalette.kPrimary,
