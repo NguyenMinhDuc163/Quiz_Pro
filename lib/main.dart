@@ -1,4 +1,5 @@
 import 'package:error_stack/error_stack.dart';
+import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -28,7 +29,9 @@ void main() async {
         projectId: dotenv.env['PROJECT_ID']!,
       )
   );
-
+  await FirebaseAppCheck.instance.activate(
+    androidProvider: AndroidProvider.playIntegrity, // Sử dụng SafetyNet cho Android
+  );
   await Supabase.initialize(
     url: dotenv.env['SUPABASE_URL']!,
     anonKey: dotenv.env['SUPABASE_ANON_KEY']!,

@@ -10,7 +10,9 @@ class FirebaseAuthService {
       {required String email,
       required String password,
       String? userName = 'nguyen duc',
-      String? phoneNum = '0123456'}) async {
+      String? phoneNum = '0123456'}
+
+      ) async {
     try {
       UserCredential credential = await _auth.createUserWithEmailAndPassword(email: email, password: password);
 

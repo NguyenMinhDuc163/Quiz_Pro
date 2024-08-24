@@ -2,10 +2,13 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:quiz_pro/global/common/toast.dart';
+import 'package:quiz_pro/models/user_model.dart';
 import 'package:quiz_pro/res/core/constants/color_constants.dart';
 import 'package:quiz_pro/res/core/helpers/asset_helper.dart';
-import 'package:quiz_pro/viewModel/auth_with_firebase.dart';
-// import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:quiz_pro/service/auth_services/auth_service.dart';
+import 'package:quiz_pro/service/auth_services/auth_with_firebase.dart';
+import 'package:quiz_pro/utils/router_names.dart';
 
 import '../../viewModel/auth_view_model.dart';
 import 'widget/custom_rich_text_widget.dart';
@@ -28,7 +31,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   late TextEditingController lastName; // Sửa lại tên biến từ `listName` thành `lastName`
   late TextEditingController emailC;
   late TextEditingController passwordC;
-  final FirebaseAuthService _auth = FirebaseAuthService();
+  final AuthService _auth = AuthWithFirebase();
   @override
   void initState() {
     super.initState();
@@ -183,8 +186,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       elevation: 0,
                       onTap: () async {
                         //TODO sign up
-                        User? user = await _auth.signUpWithEmailAndPassWord(email: emailC.text, password: passwordC.text);
-
+                        UserModel? user = await _auth.signUpWithEmailAndPassWord(
+                          email: emailC.text.trim(),
+                          password: passwordC.text.trim(),
+                          userName: '${firstName.text} ${lastName.text}',
+                        );
+                        if(user != null){
+                          showToast(message: 'Sign up success');
+                          Navigator.pushNamed(context, RouteNames.loginScreen);
+                        }
+                        else{
+                          showToast(message: 'Sign up failed');
+                        }
                       },
                       text: 'create_account'.tr(),
                       bgColor: ColorPalette.kPrimary,

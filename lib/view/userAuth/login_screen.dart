@@ -1,15 +1,16 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 import 'package:quiz_pro/global/common/toast.dart';
 import 'package:quiz_pro/models/user_model.dart';
 import 'package:quiz_pro/res/core/constants/color_constants.dart';
 import 'package:quiz_pro/res/core/helpers/asset_helper.dart';
 import 'package:quiz_pro/res/core/helpers/local_storage_helper.dart';
+import 'package:quiz_pro/service/auth_services/auth_with_firebase.dart';
 import 'package:quiz_pro/utils/router_names.dart';
+
 import '../../viewModel/auth_view_model.dart';
-import '../../viewModel/auth_with_firebase.dart';
 import 'widget/custom_rich_text_widget.dart';
 import 'widget/dividerR_row_widget.dart';
 import 'widget/icon_language_widget.dart';
@@ -30,8 +31,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   late TextEditingController emailC;
   late TextEditingController passwordC;
-  final FirebaseAuthService _auth = FirebaseAuthService();
-  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+  final authService = AuthWithFirebase();
   bool isVietnamese = true;
   @override
   void initState() {
@@ -111,7 +111,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Container(
                     width: 65,
                     height: 42,
-                    padding: EdgeInsets.all(8),
+                    padding: const EdgeInsets.all(8),
                     child: isVietnamese
 
                         ? const IconLanguageWidget( name: "VN", path: AssetHelper.icoVN)
@@ -212,15 +212,14 @@ class _LoginScreenState extends State<LoginScreen> {
                     PrimaryButtonWidget(
                       elevation: 0,
                       onTap: () async {
-                        // TODO Login
-                        // User? user = await _auth.signInWithEmailAndPassWord(email: emailC.text, password: passwordC.text);
-                        // UserModel userProvider = await _auth.getDataCurrentUser();
-                        // if(user != null){
-                        //   redirectSelectPreferencesScreen();
-                        // }else{
-                        //   showToast(message: 'Invalid email or password.');
-                        // }
-                        redirectSelectPreferencesScreen();
+                        // TODO login
+                        UserModel? userModel = await authService.signInWithEmailAndPassWord(email: emailC.text.trim(), password: passwordC.text.trim());
+                        if(userModel != null){
+                          redirectSelectPreferencesScreen();
+                        }else{
+                          showToast(message: 'Invalid email or password.');
+                        }
+
                       },
                       text: 'login'.tr(),
                       bgColor: ColorPalette.kPrimary,
@@ -273,7 +272,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 const SizedBox(height: 50),
                  Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 40),
+                  padding: const EdgeInsets.symmetric(horizontal: 40),
                   child: TermsAndPrivacyTextWidget(
                     title1: 'by_signing_up'.tr(),
                     title2: 'terms'.tr(),
