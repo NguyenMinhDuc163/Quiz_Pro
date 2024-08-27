@@ -14,8 +14,9 @@ class FirebaseAuthService {
 
       ) async {
     try {
+      print('email: $email, password: $password, userName: $userName, phoneNum: $phoneNum');
+      
       UserCredential credential = await _auth.createUserWithEmailAndPassword(email: email, password: password);
-
       await FirebaseFirestore.instance.collection('users').doc(credential.user?.uid).set({
         'email': email,
         'password': password,

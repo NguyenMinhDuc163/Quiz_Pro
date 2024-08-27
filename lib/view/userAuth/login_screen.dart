@@ -213,12 +213,13 @@ class _LoginScreenState extends State<LoginScreen> {
                       elevation: 0,
                       onTap: () async {
                         // TODO login
-                        UserModel? userModel = await authService.signInWithEmailAndPassWord(email: emailC.text.trim(), password: passwordC.text.trim());
-                        if(userModel != null){
-                          redirectSelectPreferencesScreen();
-                        }else{
-                          showToast(message: 'Invalid email or password.');
-                        }
+                        // UserModel? userModel = await authService.signInWithEmailAndPassWord(email: emailC.text.trim(), password: passwordC.text.trim());
+                        // if(userModel != null){
+                        //   redirectSelectPreferencesScreen();
+                        // }else{
+                        //   showToast(message: 'Invalid email or password.');
+                        // }
+                        redirectSelectPreferencesScreen();
 
                       },
                       text: 'login'.tr(),

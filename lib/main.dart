@@ -13,6 +13,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:provider/provider.dart';
 
 import 'providers/provider_setup.dart';
+import 'res/core/constants/dimension_constants.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -73,6 +74,7 @@ class MyApp extends StatelessWidget {
           supportedLocales: context.supportedLocales,
           locale: context.locale,
           home: const SplashScreen(),
+          navigatorKey: NavigationService.navigatorKey, // Dieu huong toan cuc
           routes: routes, // Đã định nghĩa routes ở bên trên
           debugShowCheckedModeBanner: false,
           onGenerateRoute: generateRoutes, // Đã định nghĩa generateRoutes ở bên trên

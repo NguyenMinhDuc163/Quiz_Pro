@@ -1,17 +1,8 @@
 
 import 'package:flutter/material.dart';
+import 'package:quiz_pro/init.dart';
 import 'package:quiz_pro/utils/router_names.dart';
-import 'package:quiz_pro/view/friends/friend_screen.dart';
-import 'package:quiz_pro/view/home/home_screen.dart';
-import 'package:quiz_pro/view/leaderBoard/leader_board.dart';
-import 'package:quiz_pro/view/main_app.dart';
-import 'package:quiz_pro/view/quizzes/quizzes_screen.dart';
-import 'package:quiz_pro/view/userAuth/seslect_preferences_screen.dart';
-import 'package:quiz_pro/view/userAuth/forgot_password_screen.dart';
-import 'package:quiz_pro/view/userAuth/intro_screen.dart';
-import 'package:quiz_pro/view/userAuth/login_screen.dart';
-import 'package:quiz_pro/view/userAuth/sign_up_screen.dart';
-import 'package:quiz_pro/view/userAuth/splash_screen.dart';
+
 
 final Map<String, WidgetBuilder> routes = {
   // noi tong hop ca routes
