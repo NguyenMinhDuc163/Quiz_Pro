@@ -54,7 +54,11 @@ const RESOURCES = {"icons/Icon-maskable-512.png": "301a7604d45b3e739efc881eb0489
 "main.dart.js": "41f351988a21049bb882aab569ad65a4",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
 "version.json": "c83edc62b192bf014ff0ac79e968f4ce",
+<<<<<<< HEAD
 "flutter_bootstrap.js": "a3e640c25837b6444d9a5f5a34f77c4b",
+=======
+"flutter_bootstrap.js": "7801e6ea1fcaf57323e699ad9650c072",
+>>>>>>> 582ce32 (Deploy cleaned Flutter Web to GitHub Pages)
 "canvaskit/skwasm.js.symbols": "c3c05bd50bdf59da8626bbe446ce65a3",
 "canvaskit/skwasm.wasm": "4051bfc27ba29bf420d17aa0c3a98bce",
 "canvaskit/chromium/canvaskit.wasm": "399e2344480862e2dfa26f12fa5891d7",
